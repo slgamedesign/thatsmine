@@ -1,0 +1,147 @@
+[gd_scene load_steps=19 format=3 uid="uid://bstxgajkpgo0m"]
+
+[ext_resource type="Script" path="res://Scenes/Character.gd" id="1_ahsve"]
+[ext_resource type="Texture2D" uid="uid://difdvfjyxcbja" path="res://Assets/Personajes.png" id="2_x7xc0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtlk4"]
+atlas = ExtResource("2_x7xc0")
+region = Rect2(0, 238, 98, 119)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bp35"]
+atlas = ExtResource("2_x7xc0")
+region = Rect2(98, 238, 98, 119)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7lxl"]
+atlas = ExtResource("2_x7xc0")
+region = Rect2(196, 238, 98, 119)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mxcx8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtlk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bp35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7lxl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f70qi"]
+atlas = ExtResource("2_x7xc0")
+region = Rect2(0, 119, 98, 119)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58ut0"]
+atlas = ExtResource("2_x7xc0")
+region = Rect2(98, 119, 98, 119)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxqs6"]
+atlas = ExtResource("2_x7xc0")
+region = Rect2(196, 119, 98, 119)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ah1n1"]
+atlas = ExtResource("2_x7xc0")
+region = Rect2(294, 119, 98, 119)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4pp1"]
+atlas = ExtResource("2_x7xc0")
+region = Rect2(392, 119, 98, 119)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ua0tx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f70qi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58ut0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxqs6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ah1n1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4pp1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmcl2"]
+atlas = ExtResource("2_x7xc0")
+region = Rect2(0, 0, 98, 119)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80g2w"]
+atlas = ExtResource("2_x7xc0")
+region = Rect2(98, 0, 98, 119)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hibew"]
+atlas = ExtResource("2_x7xc0")
+region = Rect2(196, 0, 98, 119)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxcdr"]
+atlas = ExtResource("2_x7xc0")
+region = Rect2(294, 0, 98, 119)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8sqv"]
+atlas = ExtResource("2_x7xc0")
+region = Rect2(392, 0, 98, 119)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nx53k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmcl2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80g2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hibew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxcdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8sqv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("clothes", "face", "hair")]
+script = ExtResource("1_ahsve")
+clothes = NodePath("Clothes")
+face = NodePath("Face")
+hair = NodePath("Hair")
+
+[node name="Clothes" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(575.5, 216.179)
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_mxcx8")
+
+[node name="Hair" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(575.5, 216.179)
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_ua0tx")
+frame = 3
+frame_progress = 0.966702
+
+[node name="Face" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(575.5, 216.179)
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_nx53k")
+frame = 2
+frame_progress = 0.450011
