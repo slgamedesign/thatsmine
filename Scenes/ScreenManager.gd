@@ -28,7 +28,7 @@ func _on_button_was_clicked(action: String, buttonName : String) -> void:
 	elif action == "back":
 		curTab -= 1
 		to_tab(curTab)
-	print(global.sendInfo["license"])
+	print("license: ", global.sendInfo["license"], "\n")
 
 func to_tab(index : int):
 	for i in range(0, tabs.size()):
