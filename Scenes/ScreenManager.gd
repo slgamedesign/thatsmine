@@ -27,6 +27,8 @@ func _on_button_was_clicked(buttonName : String, tab_index : int) -> void:
 				#global.sendInfo["license"] = buttonName
 	)
 	if licenses.has(buttonName):
-		
 		global.sendInfo["license"] = buttonName
 		print("license: ", global.sendInfo["license"])
+	elif buttonName != "next" and buttonName != "back":
+		global.sendInfo["app"] = buttonName
+		print("app: ", global.sendInfo["app"])
