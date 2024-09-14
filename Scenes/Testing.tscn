@@ -1765,7 +1765,6 @@ licTab = NodePath("LicTab")
 infTab = NodePath("InfTab")
 
 [node name="LicTab" type="Node2D" parent="Screen"]
-visible = false
 position = Vector2(32.275, 20.405)
 scale = Vector2(1.21, 1.21)
 
