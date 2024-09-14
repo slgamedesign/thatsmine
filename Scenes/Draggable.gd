@@ -24,8 +24,7 @@ func _ready() -> void:
 
 
 func _on_area_2d_mouse() -> void: # Llamada cuando el mouse SALE/ENTRA al area del documento
-	if not global.isdragging: # Si no se está arrastrando algo...
-		draggable = !draggable # (deja de) arrastrar el objeto que está debajo del mouse
+	draggable = !draggable
 
 
 func show_document() -> void:
@@ -34,9 +33,8 @@ func show_document() -> void:
 	readingWindow.show()
 
 
-func move_document():
+func move_document() -> void:
 	self.z_index = 4090 # Mueve el objeto para que se renderize arriba de cualquier otro
-	global.isdragging = true # Setea la variable global que algo está siendo arrastrado
 	global_position = get_global_mouse_position() # Mueve el objeto arrastrado a la posición del mouse
 	# Limita el área de movimiento del objeto
 	global_position.y = clampf(global_position.y - offset.y, 382 + get_child(1, true).get_child(0).shape.extents.y / 2, 650 - get_child(1, true).get_child(0).shape.extents.y / 2)
@@ -49,9 +47,9 @@ func _input(_evt: InputEvent) -> void:
 	
 	if Input.is_action_pressed("Click") and draggable: # Si el click está presionado
 		move_document()
+		global.isdragging = true # Setea la variable global que algo está siendo arrastrado
 		
-		
-	elif Input.is_action_just_released("Click") and global.isdragging: # Si se está arrastrando algo y se suelta el mouse
+	if Input.is_action_just_released("Click") and global.isdragging: # Si se está arrastrando algo y se suelta el mouse
 		global.isdragging = false # Se informa que ya no se arrastra nada
 		
 	if Input.is_action_pressed("rClick") and draggable:
