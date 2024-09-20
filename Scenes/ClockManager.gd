@@ -24,7 +24,6 @@ func _on_timer_timeout() -> void:
 		  "\nerrores\n",
 		  "puntaje\n"
 	)
-	
 
 
 func _on_minutes_frame_changed() -> void:
