@@ -75,7 +75,7 @@ func _update_hour_hand() -> void:
 # Function to reset the clock or trigger game-over logic
 func _reset_clock() -> void:
 	# Reset time to 36 or trigger an event like restarting the game
-	print("Time is up, resetting the clock or triggering end game!")
+	
 	
 	# Reset the time back to 36 (or any value you want to restart with)
 	time = 36
@@ -83,9 +83,10 @@ func _reset_clock() -> void:
 	# Reset the clock hands
 	if minuteHandle != null:
 		minuteHandle.frame = 0
-	if hourHandle != null and hourHandle.frame == 24:
+	if hourHandle != null and hourHandle.frame == 3:
 		hourHandle.frame = 0
 		timeIsUp = true
+		print("Time is up, resetting the clock or triggering end game!")
 		timeUp.emit()
 	
 	# Optionally restart the timer if needed, or handle game-over logic
