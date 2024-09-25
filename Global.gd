@@ -6,3 +6,6 @@ var user_responses : Array[Dictionary] = []
 var correct_responses : Array[Dictionary] = []
 
 var tickSpeed = 0.5
+
+var health : int = 3
+
