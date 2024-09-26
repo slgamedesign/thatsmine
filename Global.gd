@@ -5,7 +5,7 @@ var sendInfo = {"license" : null, "att" : null, "sa" : null, "nc" : null, "nd" :
 var user_responses : Array[Dictionary] = []
 var correct_responses : Array[Dictionary] = []
 
-var tickSpeed = 0.5
+var tickSpeed = 1
 
 var health : int = 3
-
+var score = 15
