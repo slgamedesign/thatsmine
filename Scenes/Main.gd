@@ -45,10 +45,7 @@ func _game_over(_btn_name, _i):
 		# Decrease health if the last response was incorrect
 		global.health -= int(last_response_incorrect)
 
-	if global.health <= 0:
-		print("\n\n\n\ngame_over\n\n")
-		fore.animation = "GameOver"
-		fore.play_backwards()
+	
 	
 
 
