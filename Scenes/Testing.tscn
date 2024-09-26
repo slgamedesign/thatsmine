@@ -1,11 +1,13 @@
-[gd_scene load_steps=350 format=3 uid="uid://cedtoq4cyhhok"]
+[gd_scene load_steps=353 format=3 uid="uid://cedtoq4cyhhok"]
 
 [ext_resource type="Texture2D" uid="uid://m0knuehinsli" path="res://Assets/ForegroundDemo1.png" id="1_hihse"]
 [ext_resource type="PackedScene" uid="uid://bstxgajkpgo0m" path="res://Objects/Character_Obj.tscn" id="1_id553"]
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_vy1sf"]
 [ext_resource type="AudioStream" uid="uid://vsxuwf0ylkvg" path="res://Audio/BackgroundNoise.wav" id="2_ddidr"]
+[ext_resource type="AudioStream" uid="uid://d3sg4gs0gtpd8" path="res://Audio/LoopIntro.wav" id="3_3apo4"]
 [ext_resource type="Texture2D" uid="uid://dj4mc5f5gydh" path="res://Assets/Fila.png" id="3_6xw7x"]
 [ext_resource type="PackedScene" uid="uid://cyo0o11vv6oyn" path="res://Objects/DraggableObject.tscn" id="3_faqed"]
+[ext_resource type="AudioStream" uid="uid://btc6vre0h1g25" path="res://Audio/Loop.wav" id="4_5v4hy"]
 [ext_resource type="Texture2D" uid="uid://beqb6w31lom6t" path="res://Assets/Cursor.png" id="4_ijqfi"]
 [ext_resource type="Texture2D" uid="uid://c1k58my58on3r" path="res://Assets/Intro.png" id="4_yxckt"]
 [ext_resource type="Script" path="res://Scenes/ScreenManager.gd" id="5_2bwg0"]
@@ -33,6 +35,11 @@
 [ext_resource type="Texture2D" uid="uid://bu701pj3wlhnq" path="res://Assets/NOTAPP-APP.png" id="22_gyvpo"]
 [ext_resource type="Texture2D" uid="uid://b6evynkyl3kf3" path="res://Assets/Buttons/ButtonNOTAPPROVED.png" id="23_bnww4"]
 [ext_resource type="Texture2D" uid="uid://dsruvylhhfsyu" path="res://Assets/Buttons/ButtonAPPROVED.png" id="24_1v7ie"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_iqosl"]
+stream_count = 2
+stream_0 = ExtResource("3_3apo4")
+stream_1 = ExtResource("4_5v4hy")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_04mi8"]
 atlas = ExtResource("3_6xw7x")
@@ -2261,10 +2268,15 @@ queue = NodePath("CanvasGroup/Fila")
 anim = NodePath("CanvasGroup/AnimationPlayer")
 fore = NodePath("CanvasGroup/Foreground")
 
-[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+[node name="Background" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_ddidr")
+volume_db = -3.467
 autoplay = true
 playback_type = 1
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamPlaylist_iqosl")
+autoplay = true
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
@@ -2550,16 +2562,16 @@ script = ExtResource("5_olf56")
 [connection signal="was_clicked" from="Screen/InfTab/ButtonNEXT" to="Screen/InfTab/Checkbox2" method="_on_next"]
 [connection signal="was_clicked" from="Screen/InfTab/ButtonNEXT" to="Screen/InfTab/Checkbox3" method="_on_next"]
 [connection signal="was_clicked" from="Screen/InfTab/ButtonBACK" to="Screen" method="_on_button_was_clicked"]
-[connection signal="was_clicked" from="Screen/FinTab/ButtonNAPP" to="." method="_on_sentence"]
 [connection signal="was_clicked" from="Screen/FinTab/ButtonNAPP" to="." method="_game_over"]
+[connection signal="was_clicked" from="Screen/FinTab/ButtonNAPP" to="." method="_on_sentence"]
 [connection signal="was_clicked" from="Screen/FinTab/ButtonNAPP" to="Object" method="_on_app_or_napp"]
-[connection signal="was_clicked" from="Screen/FinTab/ButtonNAPP" to="Screen" method="is_approved"]
 [connection signal="was_clicked" from="Screen/FinTab/ButtonNAPP" to="Screen" method="_on_button_was_clicked"]
-[connection signal="was_clicked" from="Screen/FinTab/ButtonAPP" to="." method="_on_sentence"]
+[connection signal="was_clicked" from="Screen/FinTab/ButtonNAPP" to="Screen" method="is_approved"]
 [connection signal="was_clicked" from="Screen/FinTab/ButtonAPP" to="." method="_game_over"]
+[connection signal="was_clicked" from="Screen/FinTab/ButtonAPP" to="." method="_on_sentence"]
 [connection signal="was_clicked" from="Screen/FinTab/ButtonAPP" to="Object" method="_on_app_or_napp"]
-[connection signal="was_clicked" from="Screen/FinTab/ButtonAPP" to="Screen" method="is_approved"]
 [connection signal="was_clicked" from="Screen/FinTab/ButtonAPP" to="Screen" method="_on_button_was_clicked"]
+[connection signal="was_clicked" from="Screen/FinTab/ButtonAPP" to="Screen" method="is_approved"]
 
 [editable path="Screen/LicTab/ButtonZERO"]
 [editable path="Screen/LicTab/ButtonBY"]

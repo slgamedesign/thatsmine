@@ -3,6 +3,7 @@ extends Node2D
 @export var queue : AnimatedSprite2D
 @export var anim : AnimationPlayer
 @export var fore : AnimatedSprite2D
+@export var music : AudioStreamPlayer2D
 
 signal _new_char()
 

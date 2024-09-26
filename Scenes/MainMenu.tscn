@@ -1,10 +1,12 @@
-[gd_scene load_steps=80 format=3 uid="uid://du7205pjw7pcn"]
+[gd_scene load_steps=83 format=3 uid="uid://du7205pjw7pcn"]
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_ppkm8"]
 [ext_resource type="Texture2D" uid="uid://dluwqvturhf4j" path="res://Assets/MainTitle.png" id="2_37j85"]
 [ext_resource type="Texture2D" uid="uid://c1k58my58on3r" path="res://Assets/Intro.png" id="2_xd1c3"]
 [ext_resource type="Texture2D" uid="uid://dj4mc5f5gydh" path="res://Assets/Fila.png" id="4_dive4"]
 [ext_resource type="AudioStream" uid="uid://vsxuwf0ylkvg" path="res://Audio/BackgroundNoise.wav" id="4_efeve"]
+[ext_resource type="AudioStream" uid="uid://dix3icmtg7rjx" path="res://Audio/MenuDrums.wav" id="5_imnw8"]
+[ext_resource type="AudioStream" uid="uid://ctljprg8rf6he" path="res://Audio/Engine.wav" id="6_sd3oq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ylaw"]
 atlas = ExtResource("4_dive4")
@@ -501,6 +503,38 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_828e2"]
+stream_count = 2
+stream_0/stream = ExtResource("4_efeve")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("5_imnw8")
+stream_1/volume = 0.0
+
+[sub_resource type="Animation" id="Animation_04erg"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(224.519, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(110.58, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_ey66x"]
 resource_name = "Title"
 length = 3.0
@@ -528,38 +562,13 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1.5, 3)
 }
 
-[sub_resource type="Animation" id="Animation_04erg"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(224.519, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(110.58, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s73b0"]
 _data = {
 "RESET": SubResource("Animation_04erg"),
 "Title": SubResource("Animation_ey66x")
 }
 
-[node name="Control" type="Control" node_paths=PackedStringArray("anim", "interface", "player")]
+[node name="Control" type="Control" node_paths=PackedStringArray("anim", "interface", "player", "engine")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -568,6 +577,7 @@ script = ExtResource("1_ppkm8")
 anim = NodePath("Fondo")
 interface = NodePath("MarginContainer")
 player = NodePath("AnimationPlayer")
+engine = NodePath("Fondo/Engine")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -581,9 +591,13 @@ position = Vector2(576, 324)
 scale = Vector2(2.4, 2.4)
 sprite_frames = SubResource("SpriteFrames_cb5bi")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Fondo"]
-stream = ExtResource("4_efeve")
+[node name="Background and music" type="AudioStreamPlayer2D" parent="Fondo"]
+stream = SubResource("AudioStreamSynchronized_828e2")
 autoplay = true
+
+[node name="Engine" type="AudioStreamPlayer2D" parent="Fondo"]
+stream = ExtResource("6_sd3oq")
+volume_db = -10.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../MarginContainer/VBoxContainer/Sprite2D")
