@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://vsxuwf0ylkvg" path="res://Audio/BackgroundNoise.wav" id="4_efeve"]
 [ext_resource type="AudioStream" uid="uid://dix3icmtg7rjx" path="res://Audio/MenuDrums.wav" id="5_imnw8"]
 [ext_resource type="AudioStream" uid="uid://ctljprg8rf6he" path="res://Audio/Engine.wav" id="6_sd3oq"]
-[ext_resource type="PackedScene" path="res://Objects/cursor.tscn" id="8_2c3n0"]
+[ext_resource type="PackedScene" uid="uid://cyrcwylk0la5" path="res://Objects/cursor.tscn" id="8_2c3n0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ylaw"]
 atlas = ExtResource("4_dive4")
