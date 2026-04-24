@@ -1,7 +1,7 @@
 <div align="center">
   <img src="Assets/thatsmineintro.png" width="500">
   <h1>⚖️ That's Mine! (License Game)</h1>
-</div>
+
 
   *An educational simulation game about copyright, licenses, and legal demands.*
 
@@ -29,7 +29,9 @@ A major highlight of this project is its custom audiovisual identity:
 ---
 
 ## 🎮 Gameplay Mechanics
-<img src="Assets/thatsmine.gif" width="600">
+<div align="center">
+  <img src="Assets/thatsmine.gif" width="600">
+</div>
 
 The game loop relies on reading comprehension and attention to detail. During a shift, the player goes through the following steps:
 
