@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/thatsmineintro.png" width="500">
+  <img src="Assets/thatsmineintro.png" width="500">
   <h1>⚖️ That's Mine! (License Game)</h1>
 </div>
 
@@ -29,7 +29,7 @@ A major highlight of this project is its custom audiovisual identity:
 ---
 
 ## 🎮 Gameplay Mechanics
-<img src="assets/thatsmine.gif" width="600">
+<img src="Assets/thatsmine.gif" width="600">
 
 The game loop relies on reading comprehension and attention to detail. During a shift, the player goes through the following steps:
 
