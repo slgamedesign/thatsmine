@@ -47,9 +47,9 @@ The game loop relies on reading comprehension and attention to detail. During a 
 You do not need to download the Godot Engine to play the game! 
 
 ### Play on Windows
-1. Go to the [Releases](#) page of this repository.
-2. Download the `.exe` and its associated `.pck` file.
-3. Keep both files in the same folder and double-click the `.exe` to start your shift.
+1. Go to the [Releases](https://github.com/slgamedesign/thisismine/releases/tag/v0.1-alpha) page of this repository.
+2. Download the ThatsMine-Windows.zip file.
+3. Double-click the `.exe` to start your shift.
 
 ### For Developers (Build from Source)
 If you want to edit the game or see how it works under the hood:
